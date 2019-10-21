@@ -63,8 +63,8 @@ class SocialUserProvider implements SocialUserProviderInterface
                 'email'             => $socialiteUser->getEmail(),
             ],
             [
+                'email_verified_at' => now(),
                 'name'              => $socialiteUser->getName(),
-                'email'             => $socialiteUser->getEmail(),
                 'social_id'         => $socialiteUser->getId(),
                 'service'           => $provider,
                 'social_name'       => $socialiteUser->getName(),
