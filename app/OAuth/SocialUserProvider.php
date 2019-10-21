@@ -41,7 +41,7 @@ class SocialUserProvider implements SocialUserProviderInterface
     public function getUserFromSocialProvider($provider, $accessToken)
     {
         try {
-            $user = Socialite::driver($provider)->userFromToken($accessToken);
+            $socialiteUser = Socialite::driver($provider)->userFromToken($accessToken);
         } catch (\Exception $ex) {
             throw new OAuthServerException(
                 'Authentication error, invalid access token',
@@ -51,7 +51,7 @@ class SocialUserProvider implements SocialUserProviderInterface
         }
 
         return $this->findOrCreateSocialUser(
-            $user,
+            $socialiteUser,
             $provider,
         );
     }
